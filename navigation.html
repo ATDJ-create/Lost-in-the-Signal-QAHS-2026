@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Interactive GPS science and maths experiments by Year 10 students"><title>Navigation | Lost in the Signal</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script src="navigation.js" defer></script></head><body><nav class="site-nav" aria-label="Main navigation"><a class="brand" href="index.html">✦ LOST IN THE SIGNAL</a><div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="experiments.html">Experiments</a><a href="maths-science.html">Maths &amp; Science</a><a href="tests.html">Tests</a></div></nav><main class="content-main"><header class="page-hero"><p class="eyebrow">INTERACTIVE 3D LAB</p><h1>Navigate the City</h1><p>Explore the 3D view, then use the controls to investigate the science.</p></header><section class="lab panel" id="navigation-lab">
+<p class="eyebrow dark">EXPERIMENT 03</p>
+<h2>Navigate the City</h2>
+<p>Choose a destination and watch our route-finding program search a small street grid. Try East Market with the central road open, then close it to see a genuine detour.</p>
+<div class="lab-grid">
+<div class="map-panel"><div class="three-shell"><div aria-label="Interactive three-dimensional visualisation" class="three-view" data-scene="city" role="img"></div><div aria-live="polite" class="scene-status">Loading 3D view…</div><p class="scene-help">Drag to rotate · Scroll to zoom · The 2D diagram below shows the underlying calculations.</p></div>
+<svg aria-label="City grid with roads, closed streets, a starting point, destination and calculated route" id="cityMap" role="img" viewbox="0 0 500 380"></svg>
+<div class="legend"><span><i class="dot satellite-dot"></i> Start</span><span><i class="dot receiver-dot"></i> Destination</span><span><i class="dot range-dot"></i> Route</span></div>
+<p class="map-caption">A fictional city grid. Each street segment has equal distance; the blue route avoids closed roads.</p>
+</div>
+<div class="controls">
+<h3>Plan a journey</h3>
+<label for="destination">Destination</label>
+<select id="destination"><option value="library">Library</option><option value="hospital">Hospital</option><option value="museum">Museum</option><option value="station">Train Station</option><option value="east">East Market (detour challenge)</option></select>
+<label class="satellite-toggle"><input checked="" id="roadClosure" type="checkbox"/><span>Close the central road</span></label>
+<button id="findRoute" type="button">Find shortest route</button>
+<div aria-live="polite" class="result-box">
+<p class="result-label">YOUR ROUTE</p>
+<h3 id="routeTitle">Choose your destination</h3>
+<p id="routeResult">Select a destination and calculate a route.</p><p class="coordinates" id="routeComparison"></p>
+</div>
+</div>
+</div>
+<div class="science-note"><h3>How does the route finder work?</h3>
+<p>We use <strong>breadth-first search (BFS)</strong>. It checks roads one step at a time, starting with the nearest junctions. Because every road segment has the same length in this model, the first route found is a shortest available route. Real navigation apps also consider traffic, speed limits and travel times.</p>
+<p>GPS estimates where you are; a route-finding algorithm decides which roads to take. These are two different jobs working together.</p>
+</div>
+</section><div class="page-end-links"><a class="button" href="maths-science.html#routes">Learn the Maths &amp; Science →</a><a href="experiments.html">← All experiments</a></div><script type="module" src="three-scenes.js"></script></main><footer><p>Lost in the Signal | Global Virtual Hackathon 2026 · Educational simulations</p></footer></body></html>

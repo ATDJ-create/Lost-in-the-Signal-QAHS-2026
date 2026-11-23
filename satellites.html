@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Interactive GPS science and maths experiments by Year 10 students"><title>Satellites | Lost in the Signal</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script src="gps-engine.js" defer></script><script src="satellite-simulator.js" defer></script></head><body><nav class="site-nav" aria-label="Main navigation"><a class="brand" href="index.html">✦ LOST IN THE SIGNAL</a><div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="experiments.html">Experiments</a><a href="maths-science.html">Maths &amp; Science</a><a href="tests.html">Tests</a></div></nav><main class="content-main"><header class="page-hero"><p class="eyebrow">INTERACTIVE 3D LAB</p><h1>Find My Location</h1><p>Explore the 3D view, then use the controls to investigate the science.</p></header><section class="lab panel" id="satellite-lab">
+<div class="lab-heading">
+<div>
+<p class="eyebrow dark">EXPERIMENT 01</p>
+<h2>Find My Location</h2>
+<p>Imagine a receiver somewhere on this map. Each satellite tells us how far away it is. Can we work out where the receiver is hiding?</p>
+</div>
+<div class="counter"><strong id="satelliteCount">0 / 4</strong><span>satellites active</span></div>
+</div>
+<div class="lab-grid">
+<div class="map-panel"><div class="three-shell"><div aria-label="Interactive three-dimensional visualisation" class="three-view" data-scene="satellites" role="img"></div><div aria-live="polite" class="scene-status">Loading 3D view…</div><p class="scene-help">Drag to rotate · Scroll to zoom · The 2D diagram below shows the underlying calculations.</p></div>
+<svg aria-label="A two-dimensional map showing satellites, distance circles and a receiver position" id="gpsMap" role="img" viewbox="0 0 500 360">
+<defs>
+<pattern height="25" id="mapGrid" patternunits="userSpaceOnUse" width="25">
+<path d="M 25 0 L 0 0 0 25" fill="none" stroke="#d9e6e2" stroke-width="1"></path>
+</pattern>
+</defs>
+<rect fill="#edf4f1" height="360" rx="12" width="500"></rect>
+<rect fill="url(#mapGrid)" height="360" rx="12" width="500"></rect>
+<g id="rangeLayer"></g>
+<g id="satelliteLayer"></g>
+<g id="receiverLayer"></g>
+</svg>
+<div class="legend"><span><i class="dot satellite-dot"></i> Satellite</span><span><i class="dot range-dot"></i> Distance circle</span><span><i class="dot receiver-dot"></i> Receiver</span></div>
+<p class="map-caption">A simplified flat map. The satellites are drawn around the map for learning, not at their real orbital distances.</p>
+</div>
+<div class="controls">
+<h3>Activate satellites</h3>
+<p class="small">Turn them on one at a time and watch the circles appear.</p>
+<div class="satellite-controls" id="satelliteControls"></div>
+<button class="reset-button" id="resetButton" type="button">Reset experiment</button>
+<div aria-live="polite" class="result-box">
+<p class="result-label">WHAT HAVE WE LEARNED?</p>
+<h3 id="resultTitle">Start with one satellite</h3>
+<p id="resultText">One distance measurement tells us the receiver could be anywhere on a circle.</p>
+<p class="coordinates" id="coordinateText"></p>
+</div>
+</div>
+</div>
+<div class="science-note">
+<h3>Why do real GPS systems normally need four satellites?</h3>
+<p>Our map is a <strong>2D classroom model</strong>: with three suitable distance measurements, we can locate a point on a flat map. Real GPS must find <strong>latitude, longitude, altitude and correct the receiver's clock error</strong>. That means four unknown values, so at least four suitable satellite measurements are normally required.</p>
+<p>In this experiment, the distances are assumed to be exact. In the next experiment, we'll investigate what happens when signals are delayed.</p>
+</div>
+</section><div class="page-end-links"><a class="button" href="maths-science.html#positioning">Learn the Maths &amp; Science →</a><a href="experiments.html">← All experiments</a></div><script type="module" src="three-scenes.js"></script></main><footer><p>Lost in the Signal | Global Virtual Hackathon 2026 · Educational simulations</p></footer></body></html>

@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Interactive GPS science and maths experiments by Year 10 students"><title>Signals | Lost in the Signal</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script src="gps-engine.js" defer></script><script src="signal-errors.js" defer></script></head><body><nav class="site-nav" aria-label="Main navigation"><a class="brand" href="index.html">✦ LOST IN THE SIGNAL</a><div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="experiments.html">Experiments</a><a href="maths-science.html">Maths &amp; Science</a><a href="tests.html">Tests</a></div></nav><main class="content-main"><header class="page-hero"><p class="eyebrow">INTERACTIVE 3D LAB</p><h1>Break the Signal</h1><p>Explore the 3D view, then use the controls to investigate the science.</p></header><section class="lab panel" id="signal-lab">
+<p class="eyebrow dark">EXPERIMENT 02</p>
+<h2>Break the Signal</h2>
+<p>Even a tiny delay matters when a signal travels at the speed of light. Move the slider to add a delay to Satellite A's measurement. The circles no longer meet neatly, and our estimated position moves.</p>
+<div class="lab-grid">
+<div class="map-panel"><div class="three-shell"><div aria-label="Interactive three-dimensional visualisation" class="three-view" data-scene="signals" role="img"></div><div aria-live="polite" class="scene-status">Loading 3D view…</div><p class="scene-help">Drag to rotate · Scroll to zoom · The 2D diagram below shows the underlying calculations.</p></div>
+<svg aria-label="Map of GPS measurement circles and the position estimated from delayed signals" id="errorMap" role="img" viewbox="0 0 500 360">
+<rect fill="#edf4f1" height="360" rx="12" width="500"></rect>
+<g id="errorRangeLayer"></g>
+<g id="errorPointLayer"></g>
+</svg>
+<p class="map-caption">This is a 2D teaching model. Only Satellite A has an added delay. The estimate is calculated from all four circles.</p>
+</div>
+<div class="controls">
+<label for="delaySlider"><strong>Extra signal delay</strong></label>
+<input id="delaySlider" max="100" min="0" step="5" type="range" value="0"/>
+<p><strong id="delayValue">0</strong> nanoseconds (ns)</p>
+<div aria-live="polite" class="result-box">
+<p class="result-label">WHAT CHANGED?</p>
+<p id="rangeError">Extra measured distance: 0.0 m</p>
+<p id="positionError">Position error: 0.0 map units</p>
+<p id="errorExplanation">At zero extra delay, all four circles meet at the receiver.</p>
+</div>
+<button class="reset-button" id="clearDelay" type="button">Clear delay</button>
+</div>
+</div>
+<div class="science-note"><h3>Why does time matter?</h3>
+<p><strong>Distance = speed × time.</strong> Light travels about 0.30 metres in one nanosecond, so a 100 ns delay adds about 30 metres to one measured distance. That does <em>not</em> necessarily mean the final position is wrong by 30 metres.</p>
+<p>Our classroom map uses scaled distances so that the error is visible. Real GPS also needs to correct receiver clock error and other effects.</p>
+</div>
+</section><div class="page-end-links"><a class="button" href="maths-science.html#timing">Learn the Maths &amp; Science →</a><a href="experiments.html">← All experiments</a></div><script type="module" src="three-scenes.js"></script></main><footer><p>Lost in the Signal | Global Virtual Hackathon 2026 · Educational simulations</p></footer></body></html>
